@@ -18,7 +18,8 @@ class Metric(object):
     def __init__(self):
         pass
 
-    def mae(self, records: list):
+    @staticmethod
+    def mae(records: list):
         """
         列表records存放用户评分数据，令records[i] = [u,i,rui,pui]，其中rui是用户u对物品i的实际评分，
         pui是算法预测出来的用户u对物品i的评分
@@ -34,7 +35,8 @@ class Metric(object):
             sum_ += (real_record - forcast_record) ** 2
         return math.sqrt(sum_) / float(len(records))
 
-    def rmse(self, records):
+    @staticmethod
+    def rmse(records):
         """
         列表records存放用户评分数据，令records[i] = [u,i,rui,pui]，其中rui是用户u对物品i的实际评分，
         pui是算法预测出来的用户u对物品i的评分
@@ -50,12 +52,13 @@ class Metric(object):
             sum_ += abs(real_record - forcast_record)
         return sum_ / float(len(records))
 
-    def precision(self, recommends, test_set):
+    @staticmethod
+    def precision(recommends, test_set):
         """
 
         Args:
             recommends ():
-            test_set ():
+            test_set (): 测试集。
 
         Returns:
 
@@ -63,14 +66,18 @@ class Metric(object):
         union_n = 0
         user_sum = 0
         for user, items in recommends.items():
-            pass
+            recommend_set = set(items)
+        pass
 
+    @staticmethod
     def recall(self):
         pass
 
+    @staticmethod
     def coverage(self):
         pass
 
+    @staticmethod
     def popularity(self):
         pass
 
